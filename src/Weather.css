@@ -42,3 +42,9 @@
   line-height: 19px;
   list-style: none;
 }
+
+.Weather .icon {
+  width: 64px;
+  height: 64px;
+  padding: 0;
+}
