@@ -1,4 +1,5 @@
 import FormattedDate from "./FormattedDate";
+import WeatherTemperatureConversion from "./WeatherTemperatureConversion";
 
 export default function WeatherInfo(props) {
   return (
@@ -19,7 +20,7 @@ export default function WeatherInfo(props) {
               className="icon"
             />
           </div>{" "}
-          <div> {Math.round(props.data.temperature)}°C</div>
+          <WeatherTemperatureConversion celsius={props.data.temperature} />
         </div>
         <div className="col">
           <ul>
