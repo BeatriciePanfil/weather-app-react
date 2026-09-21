@@ -5,7 +5,7 @@ import "./App.css";
 export default function App() {
   return (
     <div>
-      <Weather />
+      <Weather defaultCity="Lisbon" />
       <footer>
         This project was coded by{" "}
         <a href="https://github.com/BeatriciePanfil" target="_blank">
