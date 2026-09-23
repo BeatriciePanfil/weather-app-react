@@ -1,4 +1,11 @@
 body {
   font-family: "Poppins", sans-serif;
   margin: 30px auto;
+  background: linear-gradient(rgb(18, 35, 60) 10%, rgb(187, 187, 187) 90%);
+  background-attachment: fixed;
+}
+footer {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 14px;
 }
