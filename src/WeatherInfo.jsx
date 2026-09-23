@@ -1,34 +1,30 @@
 import FormattedDate from "./FormattedDate";
-import WeatherTemperatureConversion from "./WeatherTemperatureConversion";
+import WeatherTemperatureUnits from "./WeatherTemperatureUnits";
 
 export default function WeatherInfo(props) {
   return (
     <div className="WeatherInfo">
-      <h1>{props.data.city}</h1>
-      <ul>
-        <li>
-          <FormattedDate date={props.data.date} />
-        </li>
-        <li>{props.data.description}</li>
-      </ul>
       <div className="row">
-        <div className="col">
-          <div>
+        <div className="col-md-6">
+          <h1>{props.data.city}</h1>
+          <ul>
+            <li>
+              <FormattedDate date={props.data.date} />, {props.data.description}
+            </li>
+            <li>
+              Humidity: {props.data.humidity}%, Wind: {props.data.wind}km/h
+            </li>
+          </ul>
+        </div>
+        <div className="col-lg-6 col-md-6 col-sm-8">
+          <div className="temperature-container d-flex justify-content-end">
             <img
               src={props.data.icon}
               alt="{weather.description}"
               className="icon"
             />
-          </div>{" "}
-          <WeatherTemperatureConversion celsius={props.data.temperature} />
-        </div>
-        <div className="col">
-          <ul>
-            <li>Feels like:{Math.round(props.data.feelslike)}</li>
-            <li>Humidity: {props.data.humidity}%</li>
-            <li>Wind: {props.data.wind}km/h</li>
-            <li>Pressure:{props.data.pressure}</li>
-          </ul>
+            <WeatherTemperatureUnits celsius={props.data.temperature} />
+          </div>
         </div>
       </div>
     </div>
