@@ -58,10 +58,7 @@ export default function Weather(props) {
                   Submit
                 </button>
                 <button type="submit" className="submit d-inline d-md-none p-0">
-                  <i
-                    className="fa-solid fa-magnifying-glass"
-                    style={{ color: "rgb(0, 0, 0)", fontSize: " 16px" }}
-                  ></i>
+                  <i className="fa-solid fa-magnifying-glass"></i>
                 </button>
               </div>
             </div>
