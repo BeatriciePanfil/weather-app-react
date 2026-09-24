@@ -53,7 +53,16 @@ export default function Weather(props) {
                 />
               </div>
               <div className="col-3 ps-0">
-                <input type="submit" value="Search" className="submit" />
+                {/* <input type="submit" value="Search" className="submit" /> */}
+                <button type="submit" className="submit d-none d-md-inline">
+                  Submit
+                </button>
+                <button type="submit" className="submit d-inline d-md-none p-0">
+                  <i
+                    className="fa-solid fa-magnifying-glass"
+                    style={{ color: "rgb(0, 0, 0)", fontSize: " 16px" }}
+                  ></i>
+                </button>
               </div>
             </div>
           </form>
