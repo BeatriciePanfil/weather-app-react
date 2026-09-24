@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { UnitProvider } from "./UnitContext";
 import axios from "axios";
 
 import WeatherInfo from "./WeatherInfo";
@@ -38,26 +39,28 @@ export default function Weather(props) {
 
   if (weatherdata.displayed) {
     return (
-      <div className="Weather container">
-        <form onSubmit={handleSubmit}>
-          <div className="row">
-            {" "}
-            <div className="col-9 pe-0">
-              <input
-                type="search"
-                placeholder="Enter a city"
-                className="search"
-                onChange={handleCitySearch}
-              />
+      <UnitProvider>
+        <div className="Weather container">
+          <form onSubmit={handleSubmit}>
+            <div className="row">
+              {" "}
+              <div className="col-9 pe-0">
+                <input
+                  type="search"
+                  placeholder="Enter a city"
+                  className="search"
+                  onChange={handleCitySearch}
+                />
+              </div>
+              <div className="col-3 ps-0">
+                <input type="submit" value="Search" className="submit" />
+              </div>
             </div>
-            <div className="col-3 ps-0">
-              <input type="submit" value="Search" className="submit" />
-            </div>
-          </div>
-        </form>
-        <WeatherInfo data={weatherdata} />
-        <WeatherForecast data={weatherdata} />
-      </div>
+          </form>
+          <WeatherInfo data={weatherdata} />
+          <WeatherForecast data={weatherdata} />
+        </div>
+      </UnitProvider>
     );
   } else {
     search();

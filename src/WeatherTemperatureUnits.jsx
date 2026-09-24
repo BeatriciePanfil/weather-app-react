@@ -1,45 +1,24 @@
-import { useState } from "react";
+import { useUnit } from "./UnitContext";
 import "./WeatherTemperatureUnits.css";
 
 export default function WeatherTemperatureUnits(props) {
-  const [unit, setUnit] = useState("celsius");
+  const { unit, toggleUnit, convertTemp } = useUnit();
 
-  function displayFahrenheit(event) {
+  const handleToggleClick = (event) => {
     event.preventDefault();
-    setUnit((props.celsius * 9) / 5 + 32);
-  }
-  function displayCelsius(event) {
-    event.preventDefault();
-    setUnit("celsius");
-  }
-
-  if (unit === "celsius") {
-    return (
-      <span>
-        {" "}
-        <span className="current-temperature">
-          {Math.round(props.celsius)}
-        </span>{" "}
-        <span className="unit">
-          °C|{" "}
-          <a href="/" onClick={displayFahrenheit}>
-            °F
-          </a>
-        </span>
+    toggleUnit();
+  };
+  return (
+    <span>
+      <span className="current-temperature">
+        {Math.round(convertTemp(props.celsius))}
       </span>
-    );
-  } else {
-    return (
-      <span>
-        {" "}
-        <span className="current-temperature">{Math.round(unit)}</span>{" "}
-        <span className="unit">
-          <a href="/" onClick={displayCelsius}>
-            °C
-          </a>
-          |°F
-        </span>
+      <span className="unit">
+        °{unit} |{" "}
+        <a href="/" onClick={handleToggleClick}>
+          {unit === "C" ? "°F" : "°C"}
+        </a>
       </span>
-    );
-  }
+    </span>
+  );
 }
